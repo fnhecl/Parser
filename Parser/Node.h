@@ -1,18 +1,17 @@
 #pragma once
 #include <iostream>
 #include <string>
-using namespace std;
 
 class Node {
-	string val;
+	std::string val;
 	Node* leftChild;
 	Node* rightChild;
 public:
 	Node();
-	Node(string s);
-	Node(string s, Node* a, Node* b);
+	Node(std::string s);
+	Node(std::string s, Node* a, Node* b);
 	~Node() = default;
-	string getVal();
+	std::string getVal();
 	Node* getLeftChild();
 	Node* getRightChild();
 };
@@ -24,21 +23,21 @@ Node::Node()
 	rightChild = NULL;
 }
 
-Node::Node(string s)
+Node::Node(std::string s)
 {
 	val += s;
 	leftChild = NULL;
 	rightChild = NULL;
 }
 
-Node::Node(string s, Node * a, Node * b)
+Node::Node(std::string s, Node * a, Node * b)
 {
 	val += s;
 	leftChild = a;
 	rightChild = b;
 }
 
-inline string Node::getVal()
+inline std::string Node::getVal()
 {
 	return val;
 }
