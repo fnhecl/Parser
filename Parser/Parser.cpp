@@ -197,6 +197,29 @@ void printDFS(Node* node) {
 	printDFS(node->getRightChild());
 }
 
+void ShowPrefixTypeExp(Node* node) {
+
+}
+
+void ShowInfixTypeExp(Node* node) {
+	if (node == NULL) return;
+
+	if (left != NULL && right != NULL) {
+		printf("( ");
+	}
+
+	ShowInfixTypeExp(node->getLeftChild());
+	cout << node->getVal() << " ";
+	ShowInfixTypeExp(node->getRightChild());
+
+	if (left != NULL && right != NULL) {
+		printf(") ");
+	}
+}
+
+void ShowPostfixTypeExp(Node* node) {
+
+}
 
 int main()
 {
@@ -209,7 +232,8 @@ int main()
 	cout << postFixWithHash << endl;
 
 	makeTree(postFixWithHash);
-	printDFS(BTroot);
+	printDFS(BTroot); cout << endl;
+	ShowInfixTypeExp(BTroot); cout << endl;
 
 
 	return 0;
