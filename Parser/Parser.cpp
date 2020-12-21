@@ -172,21 +172,36 @@ void makeTree(string postFixWithHash) {
 				n *= 10;
 				n += c - '0';
 			}
-			else {
-				// make tree : stack에서 2개 꺼내 부분트리 만들기 + 스택에 넣기 
-				// => 이를 반복하다보면 최종적으로 하나의 트리만 스택에 남게 된다.
-				Node* a = vstack.back();
-				vstack.pop_back();
-				Node* b = vstack.back();
-				vstack.pop_back();
-				string ts = ""; ts += c;
+			else { //사칙연산자
+				if (c == '-' && postFixWithHash[i + 1] >= '0' && postFixWithHash[i + 1] <= '9') { //음수연산자인 경우
+					i++;
+					do {
+						n *= 10;
+						n -= postFixWithHash[i] - '0';
+						i++;
+					} while (postFixWithHash[i] >= '0' && postFixWithHash[i] <= '9');
+					i--;
 
-				pnode = new Node(ts, b, a);
-				vstack.push_back(pnode);
-				//cout << vstack.back()->getLeftChild()->getVal() << vstack.back()->getVal() << vstack.back()->getRightChild()->getVal() << endl;
+					pnode = new Node(to_string(n));
+					vstack.push_back(pnode);
+					n = 0;
+				}
+				else {
+					// make tree : stack에서 2개 꺼내 부분트리 만들기 + 스택에 넣기 
+				// => 이를 반복하다보면 최종적으로 하나의 트리만 스택에 남게 된다.
+					Node* a = vstack.back();
+					vstack.pop_back();
+					Node* b = vstack.back();
+					vstack.pop_back();
+					string ts = ""; ts += c;
+
+					pnode = new Node(ts, b, a);
+					vstack.push_back(pnode);
+					//cout << vstack.back()->getLeftChild()->getVal() << vstack.back()->getVal() << vstack.back()->getRightChild()->getVal() << endl;
+				}
 			}
 		}
-		else {
+		else { // c == '#'
 			if (n) {
 				pnode = new Node(to_string(n));
 				vstack.push_back(pnode);
