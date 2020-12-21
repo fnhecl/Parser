@@ -198,14 +198,27 @@ void printDFS(Node* node) {
 }
 
 void ShowPrefixTypeExp(Node* node) {
+	if (node == NULL) return;
 
+	if (left != NULL && right != NULL) {
+		;// printf("( ");
+	}
+
+	cout << node->getVal() << " ";
+	ShowPrefixTypeExp(node->getLeftChild());
+	ShowPrefixTypeExp(node->getRightChild());
+
+	if (left != NULL && right != NULL) {
+		;// printf(") ");
+
+	}
 }
 
 void ShowInfixTypeExp(Node* node) {
 	if (node == NULL) return;
 
 	if (left != NULL && right != NULL) {
-		printf("( ");
+		;// printf("( ");
 	}
 
 	ShowInfixTypeExp(node->getLeftChild());
@@ -213,11 +226,24 @@ void ShowInfixTypeExp(Node* node) {
 	ShowInfixTypeExp(node->getRightChild());
 
 	if (left != NULL && right != NULL) {
-		printf(") ");
+		;// printf(") ");
 	}
 }
 
 void ShowPostfixTypeExp(Node* node) {
+	if (node == NULL) return;
+
+	if (left != NULL && right != NULL) {
+		;// printf("( ");
+	}
+
+	ShowPostfixTypeExp(node->getLeftChild());
+	ShowPostfixTypeExp(node->getRightChild());
+	cout << node->getVal() << " ";
+
+	if (left != NULL && right != NULL) {
+		;// printf(") ");
+	}
 
 }
 
@@ -229,11 +255,13 @@ int main()
 	mapInit();
 
 	string postFixWithHash = makePostFixWithHash(str);
-	cout << postFixWithHash << endl;
+	//cout << postFixWithHash << endl;
 
 	makeTree(postFixWithHash);
-	printDFS(BTroot); cout << endl;
-	ShowInfixTypeExp(BTroot); cout << endl;
+	//printDFS(BTroot); cout << endl;
+	//ShowPrefixTypeExp(BTroot); cout << endl;
+	//ShowInfixTypeExp(BTroot); cout << endl;
+	ShowPostfixTypeExp(BTroot); cout << endl;
 
 
 	return 0;
