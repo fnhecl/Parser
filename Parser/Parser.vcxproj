@@ -139,10 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="iter.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="ParserTree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Parser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
