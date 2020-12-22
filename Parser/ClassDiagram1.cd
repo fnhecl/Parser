@@ -10,8 +10,15 @@
   <Class Name="ParserTree">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAACAAAAAAAAKAAQAAAAAAAAAAAAMAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAACAAAAAAAAKABYAAAAAAAAAAQAMAAAAAAAAgAAA=</HashCode>
       <FileName>ParserTree.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Checker">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAEAACAgAAAAAAAgAABCCAAAABBAAAAAAAAAABA=</HashCode>
+      <FileName>Checker.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="맑은 고딕" Size="9" />
