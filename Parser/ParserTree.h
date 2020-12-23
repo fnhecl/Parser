@@ -210,7 +210,7 @@ void ParserTree::makeTreeStream(Node* node) {
 	this->makeTreeStream(node->getLeftChild());
 	this->makeTreeStream(node->getRightChild());
 	treeStream += node->getVal();
-	treeStream += " ";
+	treeStream += "#";
 }
 
 inline Node* ParserTree::getProot()
